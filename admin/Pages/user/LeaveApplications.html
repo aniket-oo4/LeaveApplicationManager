@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Leave Management By AV</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="all,follow" />
+     <!-- JQuery -->
+    <script src="../../vendors/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../vendors/googleFontscss.css" />
+    <link rel="stylesheet" href="../../css/style.default.css"  />
+    <link rel="stylesheet" href="../../css/custom.css" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <script src="../../vendors/fontAwesome99347ac47f.js"></script>
+    <link rel="stylesheet" href="../../vendors/myfontasticIcons.css" />
+    <link rel="stylesheet" href="../../customCss/style.css" />
+
+    <!-- toast-->
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous"  referrerpolicy="no-referrer" ></script>
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ=="   crossorigin="anonymous" referrerpolicy="no-referrer"   />   <!-- MyCustom Css-->
+    <link rel="stylesheet" href="../../customCss/css.Pages/empleaveapplications.css" />
+    <!-- DataTables -->
+    <link href="https://cdn.datatables.net/v/dt/dt-2.1.8/datatables.min.css" rel="stylesheet">
+
+    <!-- font awesome for button icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   
+  </head>
+  <body>
+    <div class="page home-page">
+      <!-- Main Navbar-->
+      <header class="header">
+        <nav class="navbar">
+        <!-- Search Box-->
+        <div class="search-box">
+    <button class="dismiss"><i class="icon-close"></i></button>
+    <form id="searchForm" action="#" role="search">
+      <input
+        type="search"
+        placeholder="What are you looking for..."
+        class="form-control"
+        id="searchInput"
+      />
+    
+    </form>
+    <ul class="search-results" id="resultsList">
+      <!-- Dynamic results will be inserted here -->
+  </ul>
+        </div>
+          <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between" >
+              <!-- Navbar Header-->
+              <div class="navbar-header">
+                <!-- Navbar Brand --><a href="#" class="navbar-brand">
+                  <div class="brand-text brand-big hidden-lg-down">
+                    <span>LeaveApplication </span><strong>Manager</strong>
+                  </div>
+                  <div class="brand-text brand-small">
+                    <strong>LM</strong>
+                  </div></a
+                >
+                <!-- Toggle Button--><a   id="toggle-btn"  href="#"    class="menu-btn active"  ><span></span><span></span><span></span></a>
+              </div>
+              <!-- Navbar Menu -->
+              <ul  class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center" >
+                <!-- Search-->
+                <li class="nav-item d-flex align-items-center">
+                  <a id="search" href="#"><i class="icon-search"></i></a>
+                </li>
+                <!-- Notifications-->
+                <li class="nav-item dropdown">
+                  <a   id="notifications"  rel="nofollow" data-target="#"  href="#"    data-toggle="dropdown"   aria-haspopup="true"  aria-expanded="false"  class="nav-link" ><i class="fa fa-bell-o"></i ><span class="badge bg-red">12</span></a >
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content">
+                            <i class="fa fa-envelope bg-green"></i>You have 6
+                            new messages
+                          </div>
+                          <div class="notification-time">
+                            <small>4 minutes ago</small>
+                          </div>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content">
+                            <i class="fa fa-twitter bg-blue"></i>You have 2
+                            followers
+                          </div>
+                          <div class="notification-time">
+                            <small>4 minutes ago</small>
+                          </div>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content">
+                            <i class="fa fa-upload bg-orange"></i>Server
+                            Rebooted
+                          </div>
+                          <div class="notification-time">
+                            <small>4 minutes ago</small>
+                          </div>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content">
+                            <i class="fa fa-twitter bg-blue"></i>You have 2
+                            followers
+                          </div>
+                          <div class="notification-time">
+                            <small>10 minutes ago</small>
+                          </div>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        rel="nofollow"
+                        href="#"
+                        class="dropdown-item all-notifications text-center"
+                      >
+                        <strong>view all notifications </strong></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <!-- Messages                        -->
+                <li class="nav-item dropdown">
+                  <a  id="messages"  rel="nofollow"   data-target="#"  href="#"   data-toggle="dropdown"  aria-haspopup="true"  aria-expanded="false" class="nav-link"  ><i class="fa fa-envelope-o"></i ><span class="badge bg-orange">10</span></a  >
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile">
+                          <img   src="../../img/avatar-1.jpg"   alt="..."   class="img-fluid rounded-circle" />
+                        </div>
+                        <div class="msg-body">
+                          <h3 class="h5">Jason Doe</h3>
+                          <span>Sent You Message</span>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile">
+                          <img  src="../../img/avatar-2.jpg"   alt="..."   class="img-fluid rounded-circle" />
+                        </div>
+                        <div class="msg-body">
+                          <h3 class="h5">Frank Williams</h3>
+                          <span>Sent You Message</span>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile">
+                          <img   src="../../img/avatar-3.jpg"   alt="..."   class="img-fluid rounded-circle" />
+                        </div>
+                        <div class="msg-body">
+                          <h3 class="h5">Ashley Wood</h3>
+                          <span>Sent You Message</span>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a  rel="nofollow"   href="#"    class="dropdown-item all-notifications text-center"  >
+                        <strong>Read all messages </strong></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <!-- Logout    -->
+                <li class="nav-item">
+                  <a id="btn-logout" class="nav-link logout"  >Logout<i class="fa fa-sign-out"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+          <!-- Sidebar Header-->
+          <div  id="user-details"   class="sidebar-header d-flex align-items-center"  >
+            <div class="avatar">
+              <img  src="../../img/avatar-1.jpg"   alt="..."  class="img-fluid rounded-circle"  />
+            </div>
+            <div class="title">
+              <h1 id="user-name" class="h4" style="cursor: pointer;"  data-toggle="modal" data-target="#exampleModalCenter">Mark Stephen</h1>
+              <p id="user-role">Web Designer</p>
+
+            </div>
+          </div>
+          <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+          <ul class="list-unstyled">
+            <li class="active">
+              <a href="./"><i class="icon-home"></i>Home</a>
+            </li>
+            <li id="menu-admin">
+              <a href="#dashAdmin" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-user"></i>Admin
+              </a>
+              <ul id="dashAdmin" class="collapse list-unstyled">
+                <li>
+                  <a  href="#dashAdminConfig"    aria-expanded="false" data-toggle="collapse" >
+                    <i class="fa fa-cog fa-2x"></i>Configuration
+                  </a>
+                  <ul id="dashAdminConfig" class="collapse list-unstyled">
+                    <li><a href="#">Manage User Roles</a></li>
+                    <li><a href="#">User Actions</a></li>
+                    <li>
+                      <a> <hr /> </a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="#">Manage Employee Profile</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#dashLeave" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-interface-windows"></i>Leave Management
+              </a>
+              <ul id="dashLeave" class="collapse list-unstyled">
+                <li id="btnApprover">
+                  <a    href="#dashManager"    aria-expanded="false"  data-toggle="collapse" >
+                    <i class="fa fa-cog fa-2x"></i>Approver</a>
+                  <ul id="dashManager" class="collapse list-unstyled">
+                    <li>
+                      <a href="../admin/AllLeaveApplications.html"
+                        >All Leave Applications</a
+                      >
+                    </li>
+                    <li><a href="#">pending Leave Applications</a></li>
+                    <li>
+                      <a> <hr /> </a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="LeaveApplications.html">My Leave Applications</a></li>
+              </ul>
+            </li>
+
+          </ul>
+
+        </nav>
+        <div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">User Dashboard</h2>
+            </div>
+          </header>
+          
+        <div class="container-fluid">
+          <button  id="btnShowLeaveForm" class="btn-primary" style="border-radius: 5px;margin-top:10px;"  data-toggle="modal" data-target="#modal-ApplyLeave" data-toggle="tooltip" data-placement="bottom" title="Apply for new Leave " > Apply For Leave</button>
+
+            <table id="tblEmpLeaveApp" class="display compact " style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Leave ID</th>
+                        <th>Name</th>
+                        <th>Employee ID</th>
+                        <th>Application Date</th>
+                        <th>Leave Type</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Total Days</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                      <th>Leave ID</th>
+                      <th>Name</th>
+                      <th>Employee ID</th>
+                      <th>Application Date</th>
+                      <th>Leave Type</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Total Days</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+ <!-- Dashboard Counts Section-->
+ <section class="dashboard-counts no-padding-top" style=" margin-top: .3rem;">
+    <div class="container-fluid">
+      <div class="row bg-white has-shadow">
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-violet">
+              <i class="fa fa-tasks"></i>
+            </div>
+            <div class="title">
+              <span>pending<br />Applications</span>
+              <div class="progress">
+                <div
+                  role="progressbar"
+                  style="width: 25%; height: 4px"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  class="progress-bar bg-violet"
+                ></div>
+              </div>
+            </div>
+            <div class="number"><strong>25</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
+            <div class="title">
+              <span>Declined<br />applications</span>
+              <div class="progress">
+                <div
+                  role="progressbar"
+                  style="width: 25%; height: 4px"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  class="progress-bar bg-red"
+                ></div>
+              </div>
+            </div>
+            <div class="number"><strong>70</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-green"><i class="fa fa-tasks"></i></div>
+            <div class="title">
+              <span>Approved<br />Applications</span>
+              <div class="progress">
+                <div
+                  role="progressbar"
+                  style="width: 25%; height: 4px"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  class="progress-bar bg-green"
+                ></div>
+              </div>
+            </div>
+            <div class="number"><strong>44</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-orange">
+              <i class="fa fa-tasks"></i>
+            </div>
+            <div class="title">
+              <span>Cancelled<br />Applications</span>
+              <div class="progress">
+                <div
+                  role="progressbar"
+                  style="width: 25%; height: 4px"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  class="progress-bar bg-orange"
+                ></div>
+              </div>
+            </div>
+            <div class="number"><strong>35</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Modal Apply Leave Application-->
+<div class="modal fade" id="modal-ApplyLeave" tabindex="-1" role="dialog" aria-labelledby="modal-ApplyLeaveCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false" tabindex="-1"  >
+  <div class="modal-dialog modal-dialog-centered" style="margin-top: 100px; padding: 10px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Apply For Leave</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Leave Application Form Section -->
+        <section class="leave-application-form" style="  padding-bottom:0px !important; padding-top:10px !important;">
+          <div class="container-fluid">
+            <!-- Leave Type Selection -->
+            <div class="form-group">
+              <label for="ddlleaveType">Leave Type</label>
+              <select class="form-control" id="ddlleaveType" name="leaveType" required="required">
+                <option value="" disabled selected >Select Leave Type</option>
+              </select>
+            </div>
+            <!-- Start Date Picker -->
+            <div class="form-group">
+              <label for="startDate">Start Date</label>
+              <input type="date" class="form-control" id="startDate" name="startDate"  required="required">
+            </div>
+            <!-- End Date Picker -->
+            <div class="form-group">
+              <label for="endDate">End Date</label>
+              <input type="date" class="form-control" id="endDate" name="endDate"  required="required">
+            </div>
+            <!-- Remark Text Area -->
+            <div class="form-group">
+              <label for="remark">Remark</label>
+              <textarea class="form-control" id="remark" name="remark" rows="3" placeholder="Enter remarks..."  required="required"></textarea>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="btn-applyLeave" type="button" class="btn btn-primary">Proceed</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal View Leave Application-->
+<div class="modal fade" id="modal-ViewLeave" tabindex="-1" role="dialog" aria-labelledby="modal-ViewLeaveCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false" tabindex="-1"  >
+  <div class="modal-dialog modal-dialog-centered" style="margin-top: 100px; padding: 10px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="view-modal-title">Leave Application For  </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Leave Application Form Section -->
+        <section class="leave-application-form" style="  padding-bottom:0px !important; padding-top:10px !important;">
+          <div class="container-fluid">
+
+            <div class="form-group row">
+              <label for="modalApplicationDate" class="col-sm-4">Applied On</label>
+              <input type="text" id="modalApplicationDate" class="form-control col-sm-5"  name="startDate" disabled="disabled" readonly="readonly" >
+            </div>
+
+            <div class="form-group row">
+              <label for="modalEmpName" class="col-sm-4">Applied By </label>
+               <input type="text" id="modalEmpName" class="form-control col-sm-4" disabled="disabled" readonly="readonly" value="" >
+               <label for="modalEmpId" class="col-sm-2">ID : </label>
+               <input type="text" id="modalEmpId" class="form-control col-sm-2" disabled="disabled" readonly="readonly" value="" >
+            
+              </div>
+
+            <div class="form-group row">
+              <label for="modalLeaveType" class="col-sm-4">Leave Type</label>
+               <input type="text" id="modalLeaveType" class="form-control col-sm-5" disabled="disabled" readonly="readonly" value="" >
+            </div>
+
+            <!-- Start Date-->
+            <div class="form-group row">
+              <label for="modalStartDate" class="col-sm-4">Start Date</label>
+              <input type="text" id="modalStartDate" class="form-control col-sm-5"  name="startDate" disabled="disabled" readonly="readonly">
+            </div>
+            <!-- End Date -->
+            <div class="form-group row">
+              <label for="modalEndDate" class="col-sm-4">End Date</label>
+              <input type="text"  id="modalEndDate" class="form-control col-sm-5"  name="endDate" disabled="disabled" readonly="readonly" >
+            </div>
+                        <!-- Leave Type Selection -->
+                        <div class="form-group row">
+                          <label for="modalTotalLeaves" class="col-sm-4">Total Leaves </label>
+                           <input type="text" id="modalTotalLeaves" class="form-control col-sm-2" disabled="disabled" readonly="readonly" value="" >
+                           <label for="modalStatus" class="col-sm-2">Status </label>
+                           <input type="text" id="modalStatus" class="form-control col-sm-4" disabled="disabled" readonly="readonly" value="" >
+                        
+                          </div>
+            <!-- Remark Text Area -->
+            <div class="form-group row">
+              <label for="modalRemark" class="col-sm-4">Remark</label>
+              <textarea class="form-control col-sm-8" id="modalRemark" name="remark" rows="3" placeholder="...."  required="required" disabled="disabled" readonly="readonly"></textarea>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal update Leave Application-->
+<div class="modal fade" id="modal-UpdateLeave" tabindex="-1" role="dialog" aria-labelledby="modal-UpdateLeaveCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false" tabindex="-1"  >
+  <div class="modal-dialog modal-dialog-centered" style="margin-top: 100px; padding: 10px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Update Leave Application </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <section class="leave-UpdateApplication-form" style="  padding-bottom:0px !important; padding-top:10px !important;">
+          <div class="container-fluid">
+          
+            <div class="form-group row">
+              <label for="updateLeaveId" class="col-sm-4">Leave Id</label>
+              <input type="text" id="updateLeaveId" class="form-control col-sm-4"  name="updateLeaveId" disabled="disabled" readonly="readonly" >
+            </div>
+            <div class="form-group row">
+              <label for="updateApplicationDate" class="col-sm-4">Applied On</label>
+              <input type="text" id="updateApplicationDate" class="form-control col-sm-4"  name="updateApplicationDate" disabled="disabled" readonly="readonly" >
+            </div>
+
+              <div class="form-group row">
+                <label for="updateEmpName" class="col-sm-4">Applied By </label>
+                <input type="text" id="updateEmpName" class="form-control col-sm-4" disabled="disabled" readonly="readonly" value="" >
+                <label for="updateEmpId" class="col-sm-2">ID : </label>
+                <input type="text" id="updateEmpId" class="form-control col-sm-2" disabled="disabled" readonly="readonly" value="" >
+            
+              </div>
+
+            <div class="form-group row">
+              <label for="updateLeaveType">Leave Type</label>
+              <select id="updateLeaveType" class="form-control"  name="leaveType" required="required">
+                <option value="" disabled selected >Select Leave Type</option>
+              </select> 
+            </div>
+
+            <!-- Start Date-->
+            <div class="form-group row">
+              <label for="updateStartDate">Start Date</label>
+              <input type="date" id="updateStartDate"  class="form-control" name="startDate"  required="required">
+            </div>
+            <!-- End Date -->
+            <div class="form-group row">
+              <label for="updateEndDate">End Date</label>
+              <input type="date" id="updateEndDate"  class="form-control" name="endDate"  required="required">
+            </div>
+                        <!-- Leave Type Selection -->
+                        <div class="form-group row">
+                          <label for="updateTotalLeaves" class="col-sm-4">Total Leaves </label>
+                           <input type="text" id="updateTotalLeaves" class="form-control col-sm-2" disabled="disabled" readonly="readonly" value="" >
+                           <label for="updateStatus" class="col-sm-2">Status </label>
+                           <input type="text" id="updateStatus" class="form-control col-sm-4" disabled="disabled" readonly="readonly" value="" >
+                        
+                          </div>
+            <!-- Remark Text Area -->
+            <div class="form-group row">
+              <label for="updateRemark">Remark</label>
+              <textarea   id="updateRemark" class="form-control" name="remark" rows="3" placeholder="Enter remarks..."  required="required"></textarea>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        <button id="btn-UpdateLeave" type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- -->
+<!-- modal Cancel Leave Application-->
+<div class="modal fade" id="modal-CancelLeave" tabindex="-1" role="dialog" aria-labelledby="modal-CancelLeaveCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false" tabindex="-1"  >
+  <div class="modal-dialog modal-dialog-centered" style="margin-top: 100px; padding: 10px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Cancel Leave Application </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Leave Application Form Section -->
+        <section class="leave-application-form" style="  padding-bottom:0px !important; padding-top:10px !important;">
+          <div class="container-fluid">
+            <!-- Leave Type Selection -->
+            <div class="form-group">
+              Are You Sure ? <br> You Want to Cancel  This Leave Applicaton  <input type="hidden" id="modalCancelLeaveId" class="form-control" disabled="disabled" readonly="readonly" value=""> ?.
+            </div>
+            
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+        <button id="btn-CancelLeave" type="button" class="btn btn-danger">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- -->
+
+
+
+<!-- *********************************************************************************************************-->
+       
+          <button onclick="topFunction()" id="scrollTopBtn" title="Go to top">Top</button>
+<!-- Modal User Profile -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " style="margin-top: 100px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Employee Profile </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <!-- Employee Profile  Section-->
+                <section class="client no-padding-top">
+                  <div class="container-fluid">
+                      <!-- Client Profile -->
+                      <div class="col-lg-12">
+                        <div class="client card">
+                          <div class="card-close">
+                            <div class="dropdown">
+                              <button  type="button"  id="closeCard"   data-toggle="dropdown"   aria-haspopup="true"  aria-expanded="false"   class="dropdown-toggle"   >
+                                <i class="fa fa-ellipsis-v"></i>
+                              </button>
+                              <div  aria-labelledby="closeCard"  class="dropdown-menu has-shadow"  >
+                                <a href="#" class="dropdown-item remove">
+                                  <i class="fa fa-times"></i>Close</a  ><a href="#" class="dropdown-item edit">
+                                  <i class="fa fa-gear"></i>Edit</a   >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-body text-center">
+                            <div class="client-avatar">
+                              <img  src="../../img/avatar-2.jpg"  alt="..."   class="img-fluid rounded-circle"    />
+                              <div class="status bg-green"></div>
+                            </div>
+                            <div class="client-title">
+                              <h3>Jason Doe</h3>
+                              <span>Web Developer</span><a href="#">Follow</a>
+                            </div>
+                            <div class="client-info">
+                              <div class="row">
+                                <div class="col-4">
+                                  <strong>20</strong><br /><small>Photos</small>
+                                </div>
+                                <div class="col-4">
+                                  <strong>54</strong><br /><small>Videos</small>
+                                </div>
+                                <div class="col-4">
+                                  <strong>235</strong><br /><small>Tasks</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="client-social d-flex justify-content-between">
+                                <a href="#" target="_blank"  ><i class="fa fa-facebook"></i></a    >
+                                <a href="#" target="_blank" ><i class="fa fa-twitter"></i></a   >
+                                <a href="#" target="_blank" ><i class="fa fa-google-plus"></i></a  >
+                                <a href="#" target="_blank" ><i class="fa fa-instagram"></i></a >
+                                <a href="#" target="_blank" ><i class="fa fa-linkedin"></i  ></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <!-- Page Footer-->
+          <footer class="main-footer " style="bottom: 0%; position: relative;">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>LMS Tech Pvt.Ltd &copy; 2024</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>
+                    Design by
+                    <a
+                      href="https://www.linkedin.com/in/aniket-varkhade-253561242/"
+                      class="external"
+                      >Aniket Varkhade</a
+                    >
+                  </p>
+                  <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+              </div>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+    </div>
+
+   
+  </body>
+   <!-- Javascript files-->
+    <!-- <script src="vendors/jquery.min.js"></script> -->
+    <script src="../../js/tether.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <script src="../../js/jquery.validate.min.js"></script>
+    <script src="../../vendors/Chart.min.js"></script>
+    <script src="../../js/charts-home.js"></script>
+    <script src="../../js/front.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+    <!---->
+    <script>
+      (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] ||
+          (b[l] = function () {
+            (b[l].q = b[l].q || []).push(arguments);
+          });
+        b[l].l = +new Date();
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = "//www.google-analytics.com/analytics.js";
+        r.parentNode.insertBefore(e, r);
+      })(window, document, "script", "ga");
+      ga("create", "UA-XXXXX-X");
+      ga("send", "pageview");
+    </script>
+
+    <!--  My Custom Scripts :-->
+    <script src="../../customjs/dto.js"></script>
+    <script src="../../customjs/commonUtils.js"></script>
+    <script src="../../customjs/LeaveManager.js"></script>
+    <script src="../../customjs/script.js"></script>
+    <script src="../../customjs/Events.js"></script>
+    <script src="../../customjs/JS.Pages/empleaveapplications.js"></script>
+<!-- DataTables -->
+    <!-- <script src="https://cdn.datatables.net/v/dt/dt-2.1.8/datatables.min.js"></script> -->
+    <script src="../../vendors/DataTable/datatables.min.js"></script>
+
+
+</html>

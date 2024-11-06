@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Leave Management By AV</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="all,follow" />
+    <link rel="stylesheet" href="../../css/style.default.css"  />
+    <!-- JQuery -->
+    <script src="../../vendors/jquery.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <!-- Google fonts - Roboto -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700"> -->
+    <link rel="stylesheet" href="../../vendors/googleFontscss.css" />
+    <!-- theme stylesheet-->
+
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="../../css/custom.css" />
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <!-- Font Awesome CDN-->
+    <script src="../../vendors/fontAwesome99347ac47f.js"></script>
+    <!-- Font Icons CSS-->
+    <link rel="stylesheet" href="../../vendors/myfontasticIcons.css" />
+    <!-- toast-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"
+      integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+      integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- MyCustom Css-->
+    <link rel="stylesheet" href="../../customCss/style.css" />
+
+<style>
+ .holiday-table tbody{
+height: 100px !important;
+/* max-width: ; */
+ }
+ 
+</style>
+
+  </head>
+  <body>
+    <div class="page home-page">
+      <!-- Main Navbar-->
+      <header class="header">
+        <nav class="navbar">
+  <!-- Search Box-->
+  <div class="search-box">
+    <button class="dismiss"><i class="icon-close"></i></button>
+    <form id="searchForm" action="#" role="search">
+      <input
+        type="search"
+        placeholder="What are you looking for..."
+        class="form-control"
+        id="searchInput"
+      />
+    
+    </form>
+    <ul class="search-results" id="resultsList">
+      <!-- Dynamic results will be inserted here -->
+  </ul>
+  </div>
+          <div class="container-fluid">
+            <div
+              class="navbar-holder d-flex align-items-center justify-content-between"
+            >
+              <!-- Navbar Header-->
+              <div class="navbar-header">
+                <!-- Navbar Brand --><a href="./" class="navbar-brand">
+                  <div class="brand-text brand-big hidden-lg-down">
+                    <span>LeaveApplication </span><strong>Manager</strong>
+                  </div>
+                  <div class="brand-text brand-small">
+                    <strong>LM</strong>
+                  </div></a
+                >
+                <!-- Toggle Button--><a   id="toggle-btn"  href="#"    class="menu-btn active"  ><span></span><span></span><span></span></a>
+              </div>
+              <!-- Navbar Menu -->
+              <ul  class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center" >
+                <!-- Search-->
+                <li class="nav-item d-flex align-items-center">
+                  <a id="search" href="#"><i class="icon-search"></i></a>
+                </li>
+                <!-- Notifications-->
+                <li class="nav-item dropdown">
+                  <a   id="notifications"  rel="nofollow" data-target="#"  href="#"    data-toggle="dropdown"   aria-haspopup="true"  aria-expanded="false"  class="nav-link" ><i class="fa fa-bell-o"></i ><span class="badge bg-red">12</span></a >
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content">
+                            <i class="fa fa-envelope bg-green"></i>You have 6
+                            new messages
+                          </div>
+                          <div class="notification-time">
+                            <small>4 minutes ago</small>
+                          </div>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content">
+                            <i class="fa fa-twitter bg-blue"></i>You have 2
+                            followers
+                          </div>
+                          <div class="notification-time">
+                            <small>4 minutes ago</small>
+                          </div>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content">
+                            <i class="fa fa-upload bg-orange"></i>Server
+                            Rebooted
+                          </div>
+                          <div class="notification-time">
+                            <small>4 minutes ago</small>
+                          </div>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content">
+                            <i class="fa fa-twitter bg-blue"></i>You have 2
+                            followers
+                          </div>
+                          <div class="notification-time">
+                            <small>10 minutes ago</small>
+                          </div>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        rel="nofollow"
+                        href="#"
+                        class="dropdown-item all-notifications text-center"
+                      >
+                        <strong>view all notifications </strong></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <!-- Messages                        -->
+                <li class="nav-item dropdown">
+                  <a
+                    id="messages"
+                    rel="nofollow"
+                    data-target="#"
+                    href="#"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    class="nav-link"
+                    ><i class="fa fa-envelope-o"></i
+                    ><span class="badge bg-orange">10</span></a
+                  >
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile">
+                          <img
+                            src="../../img/avatar-1.jpg"
+                            alt="..."
+                            class="img-fluid rounded-circle"
+                          />
+                        </div>
+                        <div class="msg-body">
+                          <h3 class="h5">Jason Doe</h3>
+                          <span>Sent You Message</span>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile">
+                          <img
+                            src="../../img/avatar-2.jpg"
+                            alt="..."
+                            class="img-fluid rounded-circle"
+                          />
+                        </div>
+                        <div class="msg-body">
+                          <h3 class="h5">Frank Williams</h3>
+                          <span>Sent You Message</span>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile">
+                          <img
+                            src="../../img/avatar-3.jpg"
+                            alt="..."
+                            class="img-fluid rounded-circle"
+                          />
+                        </div>
+                        <div class="msg-body">
+                          <h3 class="h5">Ashley Wood</h3>
+                          <span>Sent You Message</span>
+                        </div></a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        rel="nofollow"
+                        href="#"
+                        class="dropdown-item all-notifications text-center"
+                      >
+                        <strong>Read all messages </strong></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <!-- Logout    -->
+                <li class="nav-item">
+                  <a id="btn-logout" class="nav-link logout"  data-toggle="tooltip" data-placement="bottom" title="Logoutout here " >Logout<i class="fa fa-sign-out" ></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+          <!-- Sidebar Header-->
+          <div   id="user-details"   class="sidebar-header d-flex align-items-center"  data-toggle="modal" data-target="#modal-emp-profile"  >
+            <div class="avatar">
+              <img   src="../../img/avatar-1.jpg"   alt="..."  class="img-fluid rounded-circle"   />
+            </div>
+            <div class="title">
+              <h1 id="user-name" class="h4" style="cursor: pointer;"  data-toggle="modal" data-target="#modal-emp-profile">Mark Stephen</h1>
+              <p id="user-role">Web Designer</p>
+
+            </div>
+          </div>
+          <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+          <ul class="list-unstyled">
+            <li class="active">
+              <a href="./admin.html"><i class="icon-home"></i>Home</a>
+            </li>
+
+            <li id="menu-admin">
+              <a href="#dashAdmin" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-user"></i>Admin
+              </a>
+              <ul id="dashAdmin" class="collapse list-unstyled">
+                <li>
+                  <a
+                    href="#dashAdminConfig"
+                    aria-expanded="false"
+                    data-toggle="collapse"
+                  >
+                    <i class="fa fa-cog fa-2x"></i>Configuration
+                  </a>
+                  <ul id="dashAdminConfig" class="collapse list-unstyled">
+                    <li><a href="#">Manage User Roles</a></li>
+                    <li><a href="#">User Actions</a></li>
+                    <li>
+                      <a> <hr /> </a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="ManageEmployeeProfile.html">Manage Employee Profile</a></li>
+                <li><a href="#">Manage Organisation </a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#dashLeave" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-interface-windows"></i>Leave Management
+              </a>
+              <ul id="dashLeave" class="collapse list-unstyled">
+                <li>
+                  <a  href="#dashManager"  aria-expanded="false"  data-toggle="collapse"  >
+                    <i class="fa fa-cog fa-2x"></i>Approver</a >
+                  <ul id="dashManager" class="collapse list-unstyled">
+                    <li>
+                      <a href="./AllLeaveApplications.html"
+                        >All Leave Applications</a  >
+                    </li>
+                    <li><a href="#">pending Leave Applications</a></li>
+                    <li>
+                      <a> <hr /> </a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="../user/LeaveApplications.html">My Leave Applications</a></li>
+              </ul>
+            </li>
+
+
+        </nav>
+        <div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Admin Dashboard</h2>
+            </div>
+          </header>
+          <!-- Dashboard Counts Section-->
+          <section class="dashboard-counts no-padding-bottom">
+            <div class="container-fluid">
+              <div class="row bg-white has-shadow">
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-violet"  data-toggle="tooltip" data-placement="top" title="Total Pending applications">
+                      <i class="fa fa-tasks"  ></i>
+                    </div>
+                    <div class="title">
+                      <span>pending<br />Applications</span>
+                      <div class="progress">
+                        <div
+                          role="progressbar"
+                          style="width: 25%; height: 4px"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          class="progress-bar bg-violet"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>25</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
+                    <div class="title">
+                      <span>Declined<br />applications</span>
+                      <div class="progress">
+                        <div
+                          role="progressbar"
+                          style="width: 25%; height: 4px"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          class="progress-bar bg-red"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>70</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-green"><i class="fa fa-tasks"></i></div>
+                    <div class="title">
+                      <span>Approved<br />Applications</span>
+                      <div class="progress">
+                        <div
+                          role="progressbar"
+                          style="width: 25%; height: 4px"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          class="progress-bar bg-green"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>44</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-orange">
+                      <i class="fa fa-tasks"></i>
+                    </div>
+                    <div class="title">
+                      <span>Cancelled<br />Applications</span>
+                      <div class="progress">
+                        <div
+                          role="progressbar"
+                          style="width: 25%; height: 4px"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          class="progress-bar bg-orange"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>35</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Dashboard Header Section    -->
+          <section class="dashboard-header">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Statistics -->
+                <div class="statistics col-lg-3 col-12">
+                  <div
+                    class="statistic d-flex align-items-center bg-white has-shadow"
+                  >
+                    <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
+                    <div class="text">
+                      <strong>234</strong><br /><small>Applications</small>
+                    </div>
+                  </div>
+                  <div
+                    class="statistic d-flex align-items-center bg-white has-shadow"
+                  >
+                    <div class="icon bg-green"><i class="fa fa-group"></i></div>
+                    <div class="text">
+                      <strong>152</strong><br /><small>Employees</small>
+                    </div>
+                  </div>
+                  <div
+                    class="statistic d-flex align-items-center bg-white has-shadow"
+                  >
+                    <div class="icon bg-orange">
+                      <i class="fa fa-paper-plane-o"></i>
+                    </div>
+                    <div class="text">
+                      <strong>147</strong><br /><small>Departments</small>
+                    </div>
+                  </div>
+                  <div
+                    class="statistic d-flex align-items-center bg-white has-shadow"
+                  >
+                    <div class="icon bg-yellow">
+                      <i class="fa fa-paper-plane-o"></i>
+                    </div>
+                    <div class="text">
+                      <strong>3</strong><br /><small>Cost Centers</small>
+                    </div>
+                  </div>
+                </div>
+                <!-- Line Chart            -->
+                <!-- <div class="chart col-lg-6 col-12">
+                  <div class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
+                    <canvas id="lineCahrt"></canvas>
+                  </div>
+                </div> -->
+
+                <div class="col-lg-9">
+                  <div class="card">
+                    <!-- <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div> -->
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Public Holidays</h3>
+                    </div>
+
+                    <div class="card-body">
+                      <div style="max-height: 330px; overflow-y: auto;">
+                      <table class="table holiday-table" id="tblPublicHolidays">
+                        <thead style="position:sticky; top: 0; background-color: white;" >
+                          <tr>
+                            <th>#</th>
+                            <th>Holiday Date</th>
+                            <th></th>
+                            <th>Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td id="holidayDate">07 october 2024</td>
+                            <td></td>
+                            <td id="holidayDescription">New Year</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="chart col-lg-3 col-12">
+                  <!-- Bar Chart   -->
+                  <!-- <div class="bar-chart has-shadow bg-white">
+                    <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server Uptime</small></div>
+                    <canvas id="barChartHome"></canvas>
+                  </div> -->
+                  <!-- Numbers-->
+                  <!-- <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
+                    <div class="text"><strong>99.9%</strong><br><small>Success Rate</small></div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Projects Section-->
+          <section class="projects no-padding-top">
+            <div class="container-fluid">
+             
+              <!-- Project-->
+              <div class="project">
+                <div class="row bg-white has-shadow">
+                  <div
+                    class="left-col col-lg-6 d-flex align-items-center justify-content-between"
+                  >
+                    <div class="project-title d-flex align-items-center">
+                      <div class="image has-shadow">
+                        <img
+                          src="../../img/project-1.jpg"
+                          alt="..."
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div class="text">
+                        <h3 class="h4">Project Title</h3>
+                        <small>Lorem Ipsum Dolor</small>
+                      </div>
+                    </div>
+                    <div class="project-date">
+                      <span class="hidden-sm-down">Today at 4:24 AM</span>
+                    </div>
+                  </div>
+                  <div class="right-col col-lg-6 d-flex align-items-center">
+                    <div class="time">
+                      <i class="fa fa-clock-o"></i>12:00 PM
+                    </div>
+                    <div class="comments">
+                      <i class="fa fa-comment-o"></i>20
+                    </div>
+                    <div class="project-progress">
+                      <div class="progress">
+                        <div
+                          role="progressbar"
+                          style="width: 45%; height: 6px"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          class="progress-bar bg-red"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Project-->
+              <div class="project">
+                <div class="row bg-white has-shadow">
+                  <div
+                    class="left-col col-lg-6 d-flex align-items-center justify-content-between"
+                  >
+                    <div class="project-title d-flex align-items-center">
+                      <div class="image has-shadow">
+                        <img
+                          src="../../img/project-2.jpg"
+                          alt="..."
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div class="text">
+                        <h3 class="h4">Project Title</h3>
+                        <small>Lorem Ipsum Dolor</small>
+                      </div>
+                    </div>
+                    <div class="project-date">
+                      <span class="hidden-sm-down">Today at 4:24 AM</span>
+                    </div>
+                  </div>
+                  <div class="right-col col-lg-6 d-flex align-items-center">
+                    <div class="time">
+                      <i class="fa fa-clock-o"></i>12:00 PM
+                    </div>
+                    <div class="comments">
+                      <i class="fa fa-comment-o"></i>20
+                    </div>
+                    <div class="project-progress">
+                      <div class="progress">
+                        <div  role="progressbar" style="width: 60%; height: 6px" aria-valuenow="25"  aria-valuemin="0"   aria-valuemax="100" class="progress-bar bg-green" ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Project-->
+              <div class="project">
+                <div class="row bg-white has-shadow">
+                  <div
+                    class="left-col col-lg-6 d-flex align-items-center justify-content-between"
+                  >
+                    <div class="project-title d-flex align-items-center">
+                      <div class="image has-shadow">
+                        <img  src="../../img/project-3.jpg"  alt=" Resource not Found Play the Game until the Issue gets Resolved "   class="img-fluid"
+                        />
+                      </div>
+                      <div class="text">
+                        <h3 class="h4">Project Title</h3>
+                        <small>Lorem Ipsum Dolor</small>
+                      </div>
+                    </div>
+                    <div class="project-date">
+                      <span class="hidden-sm-down">Today at 4:24 AM</span>
+                    </div>
+                  </div>
+                  <div class="right-col col-lg-6 d-flex align-items-center">
+                    <div class="time">
+                      <i class="fa fa-clock-o"></i>12:00 PM
+                    </div>
+                    <div class="comments">
+                      <i class="fa fa-comment-o"></i>20
+                    </div>
+                    <div class="project-progress">
+                      <div class="progress">
+                        <div  role="progressbar"    style="width: 50%; height: 6px"  aria-valuenow="25" aria-valuemin="0"  aria-valuemax="100"  class="progress-bar bg-violet"  ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Project-->
+              <div class="project">
+                <div class="row bg-white has-shadow">
+                  <div
+                    class="left-col col-lg-6 d-flex align-items-center justify-content-between"
+                  >
+                    <div class="project-title d-flex align-items-center">
+                      <div class="image has-shadow">
+                        <img   src="../../img/project-4.jpg"  alt="..."  class="img-fluid"  />
+                      </div>
+                      <div class="text">
+                        <h3 class="h4">Project Title</h3>
+                        <small>Lorem Ipsum Dolor</small>
+                      </div>
+                    </div>
+                    <div class="project-date">
+                      <span class="hidden-sm-down">Today at 4:24 AM</span>
+                    </div>
+                  </div>
+                  <div class="right-col col-lg-6 d-flex align-items-center">
+                    <div class="time">
+                      <i class="fa fa-clock-o"></i>12:00 PM
+                    </div>
+                    <div class="comments">
+                      <i class="fa fa-comment-o"></i>20
+                    </div>
+                    <div class="project-progress">
+                      <div class="progress">
+                        <div  role="progressbar"  style="width: 50%; height: 6px"   aria-valuenow="25"  aria-valuemin="0"   aria-valuemax="100"    class="progress-bar bg-orange"  ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+       
+          <button onclick="topFunction()" id="scrollTopBtn" data-toggle="tooltip" data-placement="top" title="Go to top">Top</button>
+<!-- Modal User Profile -->
+<div id="modal-emp-profile" class="modal fade" id="modal-emp-profile" tabindex="-1" role="dialog" aria-labelledby="modal-emp-profileTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " style="margin-top: 100px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-emp-profileLongTitle">Employee Profile </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <!-- Employee Profile  Section-->
+                <section class="client no-padding-top">
+                  <div class="container-fluid">
+                      <!-- Client Profile -->
+                      <div class="col-lg-12">
+                        <div class="client card">
+                          <div class="card-close">
+                            <div class="dropdown">
+                              <button  type="button"  id="closeCard"   data-toggle="dropdown"   aria-haspopup="true"  aria-expanded="false"   class="dropdown-toggle"   >
+                                <i class="fa fa-ellipsis-v"></i>
+                              </button>
+                              <div  aria-labelledby="closeCard"  class="dropdown-menu has-shadow"  >
+                                <a href="#" class="dropdown-item remove">
+                                  <i class="fa fa-times"></i>Close</a
+                                ><a href="#" class="dropdown-item edit">
+                                  <i class="fa fa-gear"></i>Edit</a   >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-body text-center">
+                            <div class="client-avatar">
+                              <img  id="emp-modal-img" src="../../img/avatar-2.jpg"  alt="..."   class="img-fluid rounded-circle"    />
+                              <div class="status bg-green"></div>
+                            </div>
+                            <div class="client-title">
+                              <h3 id="emp-modal-empname">Jason Doe</h3>
+                              <span id="emp-modal-role">Web Developer</span><a href="#" id="emp-modal-org">Follow</a>
+                            </div>
+                            <div class="client-info">
+                              <div class="row">
+                                <div class="col-4">
+                                  <strong>20</strong><br /><small>Photos</small>
+                                </div>
+                                <div class="col-4">
+                                  <strong>54</strong><br /><small>Videos</small>
+                                </div>
+                                <div class="col-4">
+                                  <strong>235</strong><br /><small>Tasks</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="client-social d-flex justify-content-between">
+                              <a href="#" target="_blank"
+                                ><i class="fa fa-facebook"></i></a
+                              ><a href="#" target="_blank"
+                                ><i class="fa fa-twitter"></i></a
+                              ><a href="#" target="_blank"
+                                ><i class="fa fa-google-plus"></i></a
+                              ><a href="#" target="_blank"
+                                ><i class="fa fa-instagram"></i></a
+                              ><a href="#" target="_blank"
+                                ><i class="fa fa-linkedin"></i
+                              ></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <!-- Page Footer-->
+          <footer class="main-footer" >
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>LMS Tech Pvt.Ltd &copy; 2024</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>
+                    Design by
+                    <a
+                      href="https://www.linkedin.com/in/aniket-varkhade-253561242/"
+                      class="external"
+                      >Aniket Varkhade</a
+                    >
+                  </p>
+                  <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+              </div>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+    </div>
+
+   
+  </body>
+   <!-- Javascript files-->
+    <!-- <script src="vendors/jquery.min.js"></script> -->
+    <script src="../../js/tether.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <script src="../../js/jquery.validate.min.js"></script>
+    <script src="../../vendors/Chart.min.js"></script>
+    <script src="../../js/charts-home.js"></script>
+    <script src="../../js/front.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+    <!---->
+    <script>
+      (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] ||
+          (b[l] = function () {
+            (b[l].q = b[l].q || []).push(arguments);
+          });
+        b[l].l = +new Date();
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = "//www.google-analytics.com/analytics.js";
+        r.parentNode.insertBefore(e, r);
+      })(window, document, "script", "ga");
+      ga("create", "UA-XXXXX-X");
+      ga("send", "pageview");
+    </script>
+
+    <!--  My Custom Scripts :-->
+    <script src="../../customjs/dto.js"></script>
+    <script src="../../customjs/commonUtils.js"></script>
+    <script src="../../customjs/LeaveManager.js"></script>
+    <script src="../../customjs/script.js"></script>
+    <script src="../../customjs/Events.js"></script>
+
+    <script src="../../customjs/JS.Pages/admin.js"></script>
+
+    <script>
+      $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+    </script>
+
+</html>

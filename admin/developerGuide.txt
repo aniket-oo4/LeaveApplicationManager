@@ -1,0 +1,398 @@
+convert al of the folllowing c# Dto classes in js  class provide complete ocde in one page  :    public class ActionMaster
+    {
+        public int actionMasterId { get; set; }
+        public int roleId { get; set; }
+        public int actionId { get; set; }
+        public int updatedStatusId { get; set; }
+
+        public string actionName { get; set; }
+    } public class Actions
+    {
+        public int actionId { get; set; }
+        public string actionName { get; set; }
+    }     public class ApplicationStatus
+    {
+        public int statusId { get; set; }
+        public string statusName { get; set; }
+    
+    } public  class CostCenters
+    {
+        public int costCenterId { get; set; }
+        public string costCenterName { get; set; }
+        public int orgId { get; set; }
+    }    public class Departments
+    {
+        public int dptId { get; set; }
+        public string dptName { get; set; }
+        public string location { get; set; }
+        public int orgId { get; set; }
+    
+    } public class Employees
+    {
+        public int empId { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string emailAddress { get; set; }
+        public System.DateTime birthDate { get; set; }
+        public string city { get; set; }
+        public System.DateTime createdAt { get; set; }
+        public System.DateTime updatedAt { get; set; }
+        public int userId { get; set; }
+        public int dptId { get; set; }
+        public int costCenterId { get; set; }
+        public int roleId { get; set; }
+        public Nullable<int> managerId { get; set; }
+        public int orgId { get; set; }
+
+
+        //
+        public string dptName { get; set; }
+        public string location { get; set; }
+        public string costCenterName { get; set; }
+        public string roleName { get; set; }
+        public string managerName { get; set; }
+        public string orgName { get; set; }
+    } public class LeaveApplications
+    {
+        public int leaveId { get; set; }
+        public int leaveTypeId { get; set; }
+        public System.DateTime leaveDateFrom { get; set; }
+        public System.DateTime leaveDateTo { get; set; }
+        public string remark { get; set; }
+        public int statusId { get; set; }
+        public System.DateTime applicationDate { get; set; }
+        public System.DateTime updatedDate { get; set; }
+        public Nullable<int> totalLeaves { get; set; }
+        public int empId { get; set; }
+
+        //
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string statusName { get; set; }
+        public string leaveType { get; set; }
+       
+    }    public class LeaveBalances
+    {
+        public int leaveBalanceId { get; set; }
+        public int empId { get; set; }
+        public int leaveTypeId { get; set; }
+        public decimal openingBalance { get; set; }
+        public decimal currentBalance { get; set; }
+
+        // 
+        public string leaveType { get; set; }
+    }    public class LeaveTypes
+    {
+        public int leaveTypeId { get; set; }
+        public string leaveType { get; set; }
+        public System.DateTime createdAt { get; set; }
+        public System.DateTime updatedAt { get; set; }
+        public int createdBy { get; set; }
+        public int updatedBy { get; set; }
+    }   public class LoginDto
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+    }public class MenuAccessMaster
+    {
+        public int accessMasterId { get; set; }
+        public int roleId { get; set; }
+        public int menuId { get; set; }
+    
+    }public class Menus
+    {
+        public int menuId { get; set; }
+        public string menuName { get; set; }
+        public string url { get; set; }
+    } public class Organisations
+    {
+        public int orgId { get; set; }
+        public string name { get; set; }
+    }public class Process
+    {
+        public int processId { get; set; }
+        public string processName { get; set; }
+        public System.DateTime createdAt { get; set; }
+        public System.DateTime updatedAt { get; set; }
+        public int CreatedBy { get; set; }
+        public int UpdatedBy { get; set; }
+    
+    }public class ProcessMaster
+    {
+        public int processMasterId { get; set; }
+        public string applicationType { get; set; }
+        public int processId { get; set; }
+    } public class ProcessStages
+    {
+        public Nullable<int> nextStageId { get; set; }
+        public int stageId { get; set; }
+        public string stageName { get; set; }
+        public string stageStatus { get; set; }
+        public int performedByRoleId { get; set; }
+        public int processId { get; set; }
+    }    public class PublicHolidays
+    {
+        public int holidayId { get; set; }
+        public System.DateTime holidayDate { get; set; }
+        public string holidayInfo { get; set; }
+        public int orgId { get; set; }
+    } public class UserRoles
+    {
+
+        public int roleId { get; set; }
+        public string roleName { get; set; }
+        public System.DateTime createdAt { get; set; }
+        public System.DateTime updatedAt { get; set; }
+        public Nullable<int> createdBy { get; set; }
+        public Nullable<int> updatedBy { get; set; }
+    
+        //
+        public string createdByName { get; set; }
+        public string updatedByName { get; set; }
+    }public class Users
+    {
+        public int userId { get; set; }
+        public string userName { get; set; }
+        public string password { get; set; }
+        public bool isActive { get; set; }
+        public System.DateTime createdAt { get; set; }
+        public System.DateTime updatedAt { get; set; }
+        public Nullable<int> createdBy { get; set; }
+        public Nullable<int> updatedBy { get; set; }
+
+        //
+        public string roleName { get; set; }
+
+    }
+
+
+
+
+    // Method to initialize the objects 
+
+    function initializeObject(targetObject, dataObject) {
+    for (let key in dataObject) {
+        if (dataObject.hasOwnProperty(key) && targetObject.hasOwnProperty(key)) {
+            targetObject[key] = dataObject[key];
+        }
+    }
+    return targetObject;
+}
+
+// Example usage
+let employeeData = {
+    empId: 101,
+    firstName: "John",
+    lastName: "Doe",
+    emailAddress: "john.doe@example.com",
+    birthDate: "1990-01-01",
+    city: "New York",
+    createdAt: "2024-10-01",
+    updatedAt: "2024-10-02",
+    userId: 201,
+    dptId: 301,
+    costCenterId: 401,
+    roleId: 501,
+    managerId: 601,
+    orgId: 701,
+    dptName: "Engineering",
+    location: "New York",
+    costCenterName: "R&D",
+    roleName: "Software Engineer",
+    managerName: "Jane Smith",
+    orgName: "Tech Corp"
+};
+
+// Initialize an Employee object
+let employee = new Employees();
+employee = initializeObject(employee, employeeData);
+
+console.log(employee);
+
+
+imprting and exporting ::
+
+// Export all classes
+module.exports = {
+    ActionMaster,
+    Actions,
+    ApplicationStatus,
+    CostCenters,
+    Departments,
+    Employees,
+    LeaveApplications,
+    LeaveBalances,
+    LeaveTypes,
+    LoginDto,
+    MenuAccessMaster,
+    Menus,
+    Organisations,
+    Process,
+    ProcessMaster,
+    ProcessStages,
+    PublicHolidays,
+    UserRoles,
+    Users
+};
+
+
+import::
+// import
+const {
+    ActionMaster,
+    Actions,
+    ApplicationStatus,
+    CostCenters,
+    Departments,
+    Employees,
+    LeaveApplications,
+    LeaveBalances,
+    LeaveTypes,
+    LoginDto,
+    MenuAccessMaster,
+    Menus,
+    Organisations,
+    Process,
+    ProcessMaster,
+    ProcessStages,
+    PublicHolidays,
+    UserRoles,
+    Users
+} = require('./dto.js');
+
+test:
+function temp() {
+
+    let dpt = new Departments();
+    Common.initializeObject(dpt, dptData)
+    console.log(dpt);
+
+    console.log(typeof Common ,Common)
+
+}
+
+let dptData = new Departments();
+dptData.dptId = 1; dptData.dptName = "hello"; dptData.location = "pune"; dptData.orgId = 1;
+
+
+temp();
+
+
+console.log(Common)
+
+
+//code for  Master PAge adding 
+Create a separate HTML file for the common components, such as header.html, navbar.html, and
+function loadComponent(componentId, filePath) {
+    fetch(filePath)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(componentId).innerHTML = data;
+        })
+        .catch(error => console.error('Error loading component:', error));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadComponent('header', 'header.html');
+    loadComponent('navbar', 'navbar.html');
+    loadComponent('footer', 'footer.html');
+});
+
+
+
+
+
+// Common method for calling any  api 
+
+/**
+ * Common API caller method using jQuery
+ * @param {string} url - The endpoint URL
+ * @param {string} method - The HTTP method ('GET', 'POST', 'PUT', 'DELETE')
+ * @param {Object} [payload] - The payload for POST and PUT requests
+ * @param {string} [token] - Optional authorization token
+ * @returns {Promise<Object>} - A promise that resolves to the response data
+ */
+apiCall:function (url, method = 'GET', payload = null, token = null) {
+    return new Promise((resolve, reject) => {
+        // Set up the AJAX request
+        const options = {
+            url: url,
+            type: method,
+            contentType: 'application/json',
+            dataType: 'json',
+            headers: {}
+        };
+
+        // Include the authorization token if provided
+        if (token) {
+            options.headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        // Add the payload for POST and PUT requests
+        if (payload) {
+            options.data = JSON.stringify(payload);
+        }
+
+        // Make the AJAX request
+        $.ajax(options)
+            .done((data) => {
+                resolve(data);
+            })
+            .fail((jqXHR, textStatus, errorThrown) => {
+                console.error('API call error:', textStatus, errorThrown);
+                reject(new Error(`HTTP error! status: ${jqXHR.status}`));
+            });
+    });
+}
+
+
+
+usage :
+
+//GEt 
+const url = 'https://api.example.com/data';
+const token = 'your-auth-token'; // Replace with your actual token
+
+apiCall(url, 'GET', null, token)
+    .then(data => console.log('GET Response:', data))
+    .catch(error => console.error('GET Error:', error));
+
+
+//Post:
+
+const url = 'https://api.example.com/data';
+const payload = {
+    name: 'John Doe',
+    email: 'john.doe@example.com'
+};
+const token = 'your-auth-token'; // Replace with your actual token
+
+apiCall(url, 'POST', payload, token)
+    .then(data => console.log('POST Response:', data))
+    .catch(error => console.error('POST Error:', error));
+
+put:
+const url = 'https://api.example.com/data/1'; // Specify the resource to update
+const payload = {
+    name: 'Jane Doe'
+};
+const token = 'your-auth-token'; // Replace with your actual token
+
+apiCall(url, 'PUT', payload, token)
+    .then(data => console.log('PUT Response:', data))
+    .catch(error => console.error('PUT Error:', error));
+
+
+Delete:
+
+const url = 'https://api.example.com/data/1'; // Specify the resource to delete
+const token = 'your-auth-token'; // Replace with your actual token
+
+apiCall(url, 'DELETE', null, token)
+    .then(data => console.log('DELETE Response:', data))
+    .catch(error => console.error('DELETE Error:', error));
+
+
+
+
+    
