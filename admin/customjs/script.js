@@ -35,6 +35,7 @@ function setPermissions(user){
         if(user.roleName=='admin')
         {
           $('#menu-admin').show(); 
+          $('#Home')[0].href='../admin/admin.html';
         }
         else{
           $('#menu-admin').hide(); 
@@ -78,5 +79,5 @@ result.Data.forEach(holiday => {
 
 // }
 
-FetchOnScroll(0,20);
+// FetchOnScroll(0,20);
 
