@@ -4,7 +4,7 @@ $(document).ready(function ()
 });
 var leaveApplications;
 async function MapAllEmpLeaveApplications(empId){
-
+debugger
      let applicationsTableBody=$('#tblAllEmpLeaveApp tbody')[0];
      applicationsTableBody.innerHTML=``;
      result=await LeaveApplicationManager.GetAllLeaveApplicationsByManager(empId);
