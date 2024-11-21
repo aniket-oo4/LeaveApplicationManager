@@ -163,13 +163,19 @@ var LeaveApplicationManager = {
                 throw error;  // Throw the error to be handled by the caller
             }
     },
-    GetAllEmployees: function (empId) {
-        let url = this.baseUrl + "/Employees/GetAll/" + empId;
+    GetAllEmployees: async function (orgId) {
+        debugger
+        let url = this.baseUrl + "/Employees/GetAll/" + orgId;
         let token = Common.getToken();
-        // console.log(token);
-        Common.apiCall(url, 'GET', null, token)
-            .then(data => { console.log('GetAll Employees :', data); return data; })
-            .catch(error => console.error('GET All Employees error:', error));
+        try {
+            let data = await Common.apiCall(url, 'GET', null, token);
+            // console.log('GetAll Employees :', data);
+            return data;  // Return the data
+        } catch (error) {
+            console.error('GET All Employees error:', error);
+            throw error;  // Throw the error to be handled by the caller
+        }
+        
     },
     GetEmployeesByManagerId:async function (managerId) {
         let url = this.baseUrl + "/Employees/GetByManagerId/" + managerId;
